@@ -5,7 +5,7 @@ const app = express();
 app.use(express.urlencoded({extended: true})); 
 
 /** Show page with a form */
-app.get('/', (req, res, next) => {
+app.get('/', (req, res) => {
   res.send(`<form method="POST" action="/">
   <input type="text" name="username">
   <input type="submit">
@@ -13,7 +13,7 @@ app.get('/', (req, res, next) => {
 });
 
 /** Process POST request */
-app.post('/', function (req, res, next) {
+app.post('/', function (req, res) {
     const name  = req.body.username; //me salía vacio debido a que al name le estaba poniendo corchetes
     res.send(`<h1>Hola ${name}!</h1>`);
 });
